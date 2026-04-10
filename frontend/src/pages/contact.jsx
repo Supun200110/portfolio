@@ -114,7 +114,7 @@ export default function ContactPage() {
                     value={formData.firstName}
                     onChange={(e) => setFormData({...formData, firstName: e.target.value})}
                     className="w-full bg-slate-800/50 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all placeholder:text-slate-600"
-                    placeholder="John"
+                    placeholder=""
                   />
                 </div>
                 <div className="space-y-2">
@@ -125,7 +125,7 @@ export default function ContactPage() {
                     value={formData.lastName}
                     onChange={(e) => setFormData({...formData, lastName: e.target.value})}
                     className="w-full bg-slate-800/50 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all placeholder:text-slate-600"
-                    placeholder="Doe"
+                    placeholder=""
                   />
                 </div>
               </div>
@@ -138,7 +138,7 @@ export default function ContactPage() {
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
                   className="w-full bg-slate-800/50 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all placeholder:text-slate-600"
-                  placeholder="john@example.com"
+                  placeholder="example@.com"
                 />
               </div>
 
