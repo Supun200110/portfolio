@@ -24,7 +24,7 @@ export default function Contact() {
               </div>
               <div>
                 <p className="font-medium text-white">Email</p>
-                <p className="text-slate-400">hello@developer.com</p>
+                <p className="text-slate-400">supunnishantha45@gmail.com</p>
               </div>
             </div>
           </motion.div>
