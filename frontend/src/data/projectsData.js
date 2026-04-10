@@ -1,6 +1,6 @@
 import beauty_clear from '../assets/beauty_clear.png';
 import covid_tracker from '../assets/chatbot.png';
-import profit from '../assets/Workout.png';
+import workout from '../assets/Workout.png';
 import bmi from '../assets/bmi.png';
 import port from '../assets/port.png'
 export const projectsData = [
@@ -26,7 +26,7 @@ export const projectsData = [
     title: 'ProFit Workout Planner',
     description: 'A high-performance Flutter application designed for fitness enthusiasts to organize their training. It features a rich library of exercises categorized by equipment and target muscle groups, with a modular "Favorites" system and dynamic home dashboard to track daily progress.',
     tech: ['Flutter', 'Dart', 'Material Design', 'Google Fonts', 'Intl', 'JSON Local Data'],
-    image: profit,
+    image: workout,
     link: '#',
     github: 'https://github.com/Supun200110/workout_planner_statefull_flutter',
     featured: true
