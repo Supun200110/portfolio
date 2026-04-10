@@ -2,7 +2,7 @@
 
 A high-end, modern developer portfolio built with the MERN stack (MongoDB, Express, React, Node.js). Designed for maximum visual impact, featuring glassmorphism aesthetics, smooth Framer Motion animations, and a fully responsive architecture.
 
-## 🚀 Key Features
+##  Key Features
 
 - **Luxury UI/UX**: Crafted with a premium dark-mode aesthetic, utilizing backdrop blurs and dynamic gradients.
 - **Dynamic Project Showcase**: A detailed gallery of professional projects including MERN e-commerce, AI dashboards, and Flutter applications.
@@ -10,14 +10,14 @@ A high-end, modern developer portfolio built with the MERN stack (MongoDB, Expre
 - **Auto-Resume Integration**: Direct "Download CV" feature for easy recruitment access.
 - **Modern Animations**: Powered by Framer Motion for smooth entrances, hover effects, and page transitions.
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - **Frontend**: React.js, Tailwind CSS, Framer Motion, Lucide Icons, React-Router-Dom.
 - **Backend**: Node.js, Express.js (MERN architecture).
 - **Icons**: React-Icons (FontAwesome, SimpleIcons).
 - **Design Principles**: Glassmorphism, Responsive Design, Premium Typography.
 
-## 📦 Project Structure
+##  Project Structure
 
 ```text
 /potr
@@ -25,7 +25,7 @@ A high-end, modern developer portfolio built with the MERN stack (MongoDB, Expre
 └── /backend    # Node.js server & API routes
 ```
 
-## ⚙️ Setup & Installation
+##  Setup & Installation
 
 ### Prerequisites
 - Node.js (v16+)
