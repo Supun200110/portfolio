@@ -1,6 +1,6 @@
 import beauty_clear from '../assets/beauty_clear.png';
 import covid_tracker from '../assets/chatbot.png';
-import workout from '../assets/Workout.png';
+import workout from '../assets/workout.png';
 import bmi from '../assets/bmi.png';
 import port from '../assets/port.png'
 export const projectsData = [
