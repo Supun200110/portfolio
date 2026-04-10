@@ -1,7 +1,12 @@
-import { motion } from 'framer-motion';
-import { ExternalLink, Globe } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ExternalLink, Globe, ChevronDown, ChevronUp } from 'lucide-react';
+import { FaGithub } from 'react-icons/fa';
 
 export default function ProjectCard({ project, index }) {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const isLongDescription = project.description.length > 150;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -27,36 +32,61 @@ export default function ProjectCard({ project, index }) {
             <Globe className="text-slate-600" size={48} />
           </div>
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-          <div className="flex gap-3">
-            <a 
-              href={project.github} 
-              className="p-2 bg-primary/20 rounded-full text-primary hover:bg-primary hover:text-white transition-all backdrop-blur-md"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Globe size={18} />
-            </a>
-            <a 
-              href={project.link} 
-              className="p-2 bg-secondary/20 rounded-full text-secondary hover:bg-secondary hover:text-white transition-all backdrop-blur-md"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <ExternalLink size={18} />
-            </a>
-          </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+          <a 
+            href={project.github} 
+            className="p-3 bg-white/10 rounded-full text-white hover:bg-primary transition-all backdrop-blur-md border border-white/20"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="View Code"
+          >
+            <FaGithub size={24} />
+          </a>
+          <a 
+            href={project.link} 
+            className="p-3 bg-white/10 rounded-full text-white hover:bg-secondary transition-all backdrop-blur-md border border-white/20"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Live Demo"
+          >
+            <ExternalLink size={24} />
+          </a>
         </div>
       </div>
 
       <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-xl font-bold text-slate-100 mb-3 group-hover:text-primary transition-colors">
-          {project.title}
-        </h3>
+        <div className="flex justify-between items-start gap-4 mb-4">
+          <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors leading-tight">
+            {project.title}
+          </h3>
+          <a 
+            href={project.github} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-3 py-1.5 bg-slate-800/50 hover:bg-slate-700 border border-slate-700 rounded-full text-slate-300 hover:text-white transition-all text-xs font-bold backdrop-blur-sm group/btn"
+          >
+            <FaGithub size={16} />
+            <span className="hidden sm:inline">GitHub</span>
+          </a>
+        </div>
         
-        <p className="text-slate-400 mb-6 flex-grow">
-          {project.description}
-        </p>
+        <div className="mb-6 flex-grow">
+          <p className={`text-slate-400 text-sm leading-relaxed transition-all duration-300 ${!isExpanded ? 'line-clamp-3' : ''}`}>
+            {project.description}
+          </p>
+          {isLongDescription && (
+            <button 
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="mt-2 text-primary text-xs font-bold hover:underline flex items-center gap-1"
+            >
+              {isExpanded ? (
+                <>Read Less <ChevronUp size={14} /></>
+              ) : (
+                <>View More... <ChevronDown size={14} /></>
+              )}
+            </button>
+          )}
+        </div>
 
         <div className="flex flex-wrap gap-2 mt-auto">
           {project.tech.map((tech, i) => (
