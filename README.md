@@ -52,7 +52,7 @@ npm install
 npm run dev
 ```
 
-## 👤 Author
+##  Author
 
 **Supun Silva**
 - [LinkedIn](https://www.linkedin.com/in/supun-nishantha-silva-70a231371/)
