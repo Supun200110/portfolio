@@ -1,18 +1,35 @@
 import { motion } from 'framer-motion';
-import { Briefcase, GraduationCap, Code2, Heart, Award, Cpu } from 'lucide-react';
+import { Briefcase, GraduationCap, Code2, Heart, Award, Cpu, ShieldCheck, Zap, ExternalLink } from 'lucide-react';
+import { 
+  SiMongodb, 
+  SiExpress, 
+  SiReact, 
+  SiNodedotjs, 
+  SiTailwindcss, 
+  SiJavascript, 
+  SiTypescript, 
+  SiPython,
+  SiFlutter,
+  SiFirebase
+} from 'react-icons/si';
+import { FaLinkedin, FaInstagram, FaGithub } from 'react-icons/fa';
 import aboutPhoto from '../assets/abou.jpeg';
 
-const skills = [
-  { name: 'React / Next.js', level: 95, color: 'from-blue-400 to-cyan-400' },
-  { name: 'Node.js / Express', level: 90, color: 'from-green-400 to-emerald-500' },
-  { name: 'TypeScript', level: 85, color: 'from-blue-500 to-indigo-600' },
-  { name: 'Web Design / UI', level: 88, color: 'from-purple-400 to-pink-500' },
+const coreTechnologies = [
+  { name: 'MongoDB', icon: <SiMongodb className="text-[#47A248]" />, level: 'Database' },
+  { name: 'Express', icon: <SiExpress className="text-white" />, level: 'Backend' },
+  { name: 'React', icon: <SiReact className="text-[#61DAFB]" />, level: 'Frontend' },
+  { name: 'Node.js', icon: <SiNodedotjs className="text-[#339933]" />, level: 'Runtime' },
+  { name: 'Tailwind', icon: <SiTailwindcss className="text-[#06B6D4]" />, level: 'Styling' },
+  { name: 'JavaScript', icon: <SiJavascript className="text-[#F7DF1E]" />, level: 'Language' },
+  { name: 'Flutter', icon: <SiFlutter className="text-[#02569B]" />, level: 'Mobile' },
+  { name: 'Python', icon: <SiPython className="text-[#3776AB]" />, level: 'Language' },
 ];
 
-const stats = [
-  { label: 'Years Experience', value: '4+', icon: <Briefcase size={20} /> },
-  { label: 'Projects Completed', value: '50+', icon: <Award size={20} /> },
-  { label: 'Happy Clients', value: '30+', icon: <Heart size={20} /> },
+const socialLinks = [
+  { name: 'LinkedIn', icon: <FaLinkedin size={28} />, link: 'https://www.linkedin.com/in/supun-nishantha-silva-70a231371/' },
+
+  { name: 'GitHub', icon: <FaGithub size={28} />, link: 'https://github.com/Supun200110' },
 ];
 
 export default function AboutPage() {
@@ -27,7 +44,7 @@ export default function AboutPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start"
         >
           {/* Left Side: Photo & Quick Info */}
           <div className="relative group">
@@ -42,14 +59,25 @@ export default function AboutPage() {
                   e.target.src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop';
                 }}
               />
-              <div className="absolute inset-x-0 bottom-0 p-8 bg-gradient-to-t from-background via-background/60 to-transparent">
-                <div className="flex gap-4">
-                  {stats.map((stat, i) => (
-                    <div key={i} className="flex-1 text-center">
-                      <div className="text-secondary mb-1 flex justify-center">{stat.icon}</div>
-                      <div className="text-2xl font-bold text-white">{stat.value}</div>
-                      <div className="text-[10px] uppercase tracking-wider text-slate-400 font-medium">{stat.label}</div>
-                    </div>
+              <div className="absolute inset-x-0 bottom-0 p-8 bg-gradient-to-t from-black via-black/40 to-transparent backdrop-blur-[2px]">
+                <div className="flex justify-center gap-10">
+                  {socialLinks.map((social, i) => (
+                    <motion.a 
+                      key={i}
+                      href={social.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ y: -8, scale: 1.2 }}
+                      whileTap={{ scale: 0.9 }}
+                      className="text-white hover:text-primary transition-colors flex flex-col items-center gap-2 group"
+                    >
+                      <div className="p-3 bg-white/10 rounded-2xl backdrop-blur-md border border-white/10 group-hover:border-primary/50 group-hover:bg-primary/10 transition-all duration-300 shadow-xl">
+                        {social.icon}
+                      </div>
+                      <span className="text-[10px] uppercase tracking-widest font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        {social.name}
+                      </span>
+                    </motion.a>
                   ))}
                 </div>
               </div>
@@ -69,52 +97,56 @@ export default function AboutPage() {
                 Pushing the boundaries of <span className="text-primary italic">digital experiences.</span>
               </h1>
               <p className="text-slate-400 text-lg leading-relaxed">
-                I'm a Full-Stack Developer and UI Specialist who finds joy at the intersection of powerful code and pixel-perfect design. 
-                With over four years of experience, I help startups and businesses build products that aren't just functional, but memorable.
+                I'm an undergraduate Full-Stack Developer and UI Specialist who finds joy at the intersection of powerful code and pixel-perfect design. 
+                I focus on building modern, high-performance web applications that aren't just functional, but memorable.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="flex gap-4 items-start p-4 rounded-2xl bg-slate-900/50 border border-white/5 backdrop-blur-sm">
+            <div className="grid grid-cols-1 gap-6">
+              <div className="flex gap-4 items-start p-6 rounded-2xl bg-slate-900/50 border border-white/5 backdrop-blur-sm">
                 <GraduationCap className="text-secondary shrink-0" size={24} />
                 <div>
-                  <h4 className="text-white font-bold mb-1">Education</h4>
-                  <p className="text-slate-400 text-sm">B.S. in Computer Science<br />Tech Institute of Design</p>
-                </div>
-              </div>
-              <div className="flex gap-4 items-start p-4 rounded-2xl bg-slate-900/50 border border-white/5 backdrop-blur-sm">
-                <Code2 className="text-primary shrink-0" size={24} />
-                <div>
-                  <h4 className="text-white font-bold mb-1">Stack</h4>
-                  <p className="text-slate-400 text-sm">MERN / Next.js / AWS / TailwindCSS</p>
+                  <h4 className="text-white font-bold mb-1 text-lg">Education</h4>
+                  <p className="text-slate-400 text-base leading-relaxed">B.Sc.(hons) in IT | Horizon Campus<br />Rajasinghe Central College</p>
                 </div>
               </div>
             </div>
 
-            <div className="space-y-5">
+            <div className="space-y-6">
               <h3 className="text-xl font-bold text-white flex items-center gap-2">
-                <Cpu size={20} className="text-secondary" />
-                Technical Mastery
+                <ShieldCheck size={20} className="text-primary" />
+                Core Technologies
               </h3>
-              <div className="space-y-4">
-                {skills.map((skill, i) => (
-                  <div key={i} className="space-y-2">
-                    <div className="flex justify-between items-end text-sm">
-                      <span className="text-slate-200 font-medium">{skill.name}</span>
-                      <span className="text-slate-400">{skill.level}%</span>
+              
+              <div className="grid grid-cols-2 sm:grid-cols-5 gap-4">
+                {coreTechnologies.map((tech, i) => (
+                  <motion.div 
+                    key={i}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    whileHover={{ y: -5, scale: 1.05 }}
+                    transition={{ delay: i * 0.05 }}
+                    className="flex flex-col items-center gap-3 p-4 rounded-2xl bg-slate-900/40 border border-white/5 backdrop-blur-md hover:border-primary/50 hover:bg-slate-800/60 transition-all cursor-default"
+                  >
+                    <div className="text-3xl filter drop-shadow-[0_0_8px_rgba(255,255,255,0.1)]">
+                      {tech.icon}
                     </div>
-                    <div className="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
-                      <motion.div 
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, delay: i * 0.1 }}
-                        className={`h-full bg-gradient-to-r ${skill.color}`}
-                      ></motion.div>
+                    <div className="text-center">
+                      <p className="text-white text-[11px] font-bold leading-tight">{tech.name}</p>
+                      <p className="text-slate-500 text-[9px] uppercase tracking-tighter mt-0.5">{tech.level}</p>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
+
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                className="mt-6 flex items-center gap-2 text-primary font-medium text-sm p-4 rounded-xl bg-primary/5 border border-primary/10"
+              >
+                <Zap size={16} />
+                <span>Specialized in building high-performance MERN applications</span>
+              </motion.div>
             </div>
           </div>
         </motion.div>
